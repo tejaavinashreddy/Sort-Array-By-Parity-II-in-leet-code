@@ -1,0 +1,24 @@
+class Solution {
+    public int[] sortArrayByParityII(int[] nums) {
+     int[] even = new int[nums.length];
+     int[] odd = new int[nums.length];
+     for(int i=0,j=0,k=0; i<nums.length; i++){
+         if(nums[i] % 2 == 0){
+             even[j] = nums[i];
+             j++;
+         }else if(nums[i] % 2 == 1){
+             odd[k] = nums[i];
+             k++;
+         }
+     }  
+     for(int i=0,j=0; i<nums.length; j++){
+         nums[i] = even[j];
+         i = i+2;
+     }
+     for(int i=1,j=0; i<nums.length; j++){
+         nums[i] = odd[j];
+         i = i+2;
+     }          
+    return nums;    
+    }
+}
